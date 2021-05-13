@@ -1,0 +1,38 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>laget.Quartz</id>
+    <title>laget.Quartz</title>
+    <version>$version$</version>
+    <authors>gonace,laget.se</authors>
+    <owners>laget.se</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A generic implementation of Quartz, an open-source job scheduling system for .NET...</description>
+    <summary></summary>
+    <license type="expression">MIT</license>
+    <projectUrl>https://laget.se</projectUrl>
+    <icon>assets\icon.png</icon>
+    <repository type="git" url="https://github.com/laget-se/laget.Quartz" branch="master" />
+    <dependencies>
+      <group targetFramework="netstandard2.1">
+        <dependency id="Autofac.Extensions.DependencyInjection" version="7.1.0" />
+        <dependency id="Autofac.Extras.Quartz" version="7.1.0" />
+        <dependency id="Microsoft.Extensions.Hosting" version="5.0.0" />
+        <dependency id="Serilog" version="2.10.0" />
+        <dependency id="Quartz" version="3.3.2" />
+      </group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="Autofac.Extensions.DependencyInjection" version="7.1.0" />
+        <dependency id="Autofac.Extras.Quartz" version="7.1.0" />
+        <dependency id="Microsoft.Extensions.Hosting" version="5.0.0" />
+        <dependency id="Serilog" version="2.10.0" />
+        <dependency id="Quartz" version="3.3.2" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\assets\icon.png" target="assets\" />
+    <file src=".\bin\Release\netstandard2.1\*" target="lib\netstandard2.1\" />
+    <file src=".\bin\Release\netstandard2.0\*" target="lib\netstandard2.0\" />
+  </files>
+</package>
