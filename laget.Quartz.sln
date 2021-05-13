@@ -3,14 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.Db.Mongo", "laget.Quartz\laget.Quartz.csproj", "{D5876128-8676-4BBD-873F-61C8E1B74320}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.Quartz", "laget.Quartz\laget.Quartz.csproj", "{D5876128-8676-4BBD-873F-61C8E1B74320}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.Db.Mongo.Tests", "laget.Quartz.Tests\laget.Quartz.Tests.csproj", "{630356D6-0AD9-4FCD-9F9A-55B4A3AE6C21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "laget.Quartz.Tests", "laget.Quartz.Tests\laget.Quartz.Tests.csproj", "{630356D6-0AD9-4FCD-9F9A-55B4A3AE6C21}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8DC64BF7-03B4-44B0-A827-48ACDCA96D7D}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		README.md = README.md
 	EndProjectSection
 EndProject

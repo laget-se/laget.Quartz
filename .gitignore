@@ -203,6 +203,9 @@ PublishScripts/
 *.nuget.props
 *.nuget.targets
 
+# Debian Packages (act)
+*.deb
+
 # Microsoft Azure Build Output
 csx/
 *.build.csdef
