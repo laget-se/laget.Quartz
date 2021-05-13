@@ -23,8 +23,9 @@ jobs:
       if: ${{false}}
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      uses: laget-se/publish-nuget@v2.6.2
+      uses: laget-se/publish-nuget@v2.6.3
       with:
         PROJECT_FILE_PATH: laget.Quartz/laget.Quartz.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+        NUSPEC_FILE: laget.Quartz/laget.Quartz.nuspec
         VERSION_STATIC: "1.0.${{github.run_number}}"
