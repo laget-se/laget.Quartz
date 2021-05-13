@@ -21,7 +21,7 @@ namespace laget.Quartz
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            Log.Information($"{Assembly.GetExecutingAssembly().FullName} is now started, to safely close the application press CTRL+C once!");
+            Log.Information($"{Assembly.GetEntryAssembly().ManifestModule.Name} is now started, to safely close the application press CTRL+C once!");
 
             RegisterJobs();
 
@@ -35,7 +35,7 @@ namespace laget.Quartz
 
         private void RegisterJobs()
         {
-            var assembly = GetType().GetTypeInfo().Assembly;
+            var assembly = Assembly.GetEntryAssembly();
             var jobs = assembly.DefinedTypes.Where(t => t.ImplementedInterfaces.Any(inter => inter == typeof(IJob))).ToList();
 
             foreach (var job in jobs)

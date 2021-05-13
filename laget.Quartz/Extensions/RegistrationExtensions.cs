@@ -21,7 +21,7 @@ namespace laget.Quartz.Extensions
             var config = new NameValueCollection
             {
                 { "quartz.serializer.type", "binary" },
-                { "quartz.scheduler.instanceName", Assembly.GetExecutingAssembly().FullName },
+                { "quartz.scheduler.instanceName", Assembly.GetEntryAssembly().GetName().Name },
                 { "quartz.jobStore.type", "Quartz.Simpl.RAMJobStore, Quartz" },
                 { "quartz.threadPool.threadCount", "4" }
             };
@@ -49,7 +49,7 @@ namespace laget.Quartz.Extensions
                 ConfigurationProvider = c => config
             });
 
-            builder.RegisterModule(new QuartzAutofacJobsModule(Assembly.GetExecutingAssembly()));
+            builder.RegisterModule(new QuartzAutofacJobsModule(Assembly.GetEntryAssembly()));
 
             builder.RegisterType<Service>().AsSelf().SingleInstance();
         }
