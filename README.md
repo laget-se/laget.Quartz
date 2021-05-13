@@ -1,8 +1,8 @@
 ﻿# laget.Quartz
 A generic implementation of Quartz, an open-source job scheduling system for .NET.
 
-![Nuget](https://img.shields.io/nuget/v/laget.Caching)
-![Nuget](https://img.shields.io/nuget/dt/laget.Caching)
+![Nuget](https://img.shields.io/nuget/v/laget.Quartz)
+![Nuget](https://img.shields.io/nuget/dt/laget.Quartz)
 
 ## Configuration
 > This implementation requires `Autofac` since this is the Inversion of Control container of our choosing.
