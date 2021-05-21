@@ -34,7 +34,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --configuration Releasel
+      run: dotnet build --no-restore --configuration Release
     - name: Publish
       uses: laget-se/publish-nuget@v2.6.5
       with:
