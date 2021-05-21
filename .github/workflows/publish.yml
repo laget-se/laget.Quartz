@@ -2,11 +2,12 @@ name: Publish
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest
+  tests:
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -19,12 +20,25 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release
     - name: Test
-      if: ${{false}}
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --configuration Release --verbosity normal
+
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore --configuration Releasel
     - name: Publish
       uses: laget-se/publish-nuget@v2.6.5
       with:
         PROJECT_FILE_PATH: laget.Quartz/laget.Quartz.csproj
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
         NUSPEC_FILE: laget.Quartz.nuspec
-        VERSION_STATIC: "1.1.${{github.run_number}}"
+        VERSION_STATIC: "1.2.${{github.run_number}}"
