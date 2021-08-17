@@ -78,5 +78,7 @@ public class SomeJob : laget.Quartz.Job
         .Build();
 
     private static TimeSpan Interval => TimeSpan.FromSeconds(60);
+    public override string Group => "Group";
+    public override string Name => nameof(SomeJob);
 }
 ```
