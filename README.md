@@ -46,7 +46,7 @@ await Host.CreateDefaultBuilder()
 #### Job
 ```c#
 [DisallowConcurrentExecution]
-public class SomeJob : laget.Quartz.Job, laget.Quartz.IJob
+public class SomeJob : laget.Quartz.Job
 {
     private readonly ISomeService _someService;
 
@@ -62,22 +62,21 @@ public class SomeJob : laget.Quartz.Job, laget.Quartz.IJob
 
     public async Task Execute(IJobExecutionContext context)
     {
-        Log.Information($"Executing '{nameof(SomeJob)}' (Reason='Trigger fired at {context.FireTimeUtc.LocalDateTime}', Id='{context.FireInstanceId}')");
-
         // Do some stuff here!
-
-        Log.Information($"The next occurrence of the '{nameof(SomeJob)}' schedule (Constant='{Interval}') will be='{context.NextFireTimeUtc?.DateTime.ToLocalTime().ToString(CultureInfo.CurrentCulture) ?? string.Empty}'");
     }
+
 
     public ITrigger Trigger => TriggerBuilder
         .Create()
-        .WithIdentity($"{typeof(ReminderJob).FullName}-Trigger")
         .StartNow()
+        .WithIdentity(Name, Group)
         .WithSimpleSchedule(x => x
             .WithInterval(Interval)
             .WithMisfireHandlingInstructionIgnoreMisfires()
             .RepeatForever()
         )
         .Build();
+
+    private static TimeSpan Interval => TimeSpan.FromSeconds(60);
 }
 ```

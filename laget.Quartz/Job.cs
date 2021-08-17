@@ -1,16 +1,27 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Quartz;
-using IQuartzJob = Quartz.IJob;
 
 namespace laget.Quartz
 {
-    public interface IJob : IQuartzJob
+    public abstract class Job : IJob
     {
-        ITrigger Trigger { get; }
-    }
+        public abstract string Group { get; }
+        public abstract string Name { get; }
+        public abstract ITrigger Trigger { get; }
 
-    public class Job
-    {
-        protected virtual TimeSpan Interval => TimeSpan.FromSeconds(60);
+        public abstract Task ExecuteJob(IJobExecutionContext context);
+
+        public async Task Execute(IJobExecutionContext context)
+        {
+            try
+            {
+                await ExecuteJob(context);
+            }
+            catch (Exception ex)
+            {
+                throw new JobExecutionException(ex);
+            }
+        }
     }
 }
