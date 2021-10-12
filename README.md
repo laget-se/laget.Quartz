@@ -60,7 +60,7 @@ public class SomeJob : laget.Quartz.Job
         _someService = someService;
     }
 
-    public async Task Execute(IJobExecutionContext context)
+    public override async Task ExecuteJob(IJobExecutionContext context)
     {
         // Do some stuff here!
     }
