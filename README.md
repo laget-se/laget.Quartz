@@ -66,7 +66,7 @@ public class SomeJob : laget.Quartz.Job
     }
 
 
-    public ITrigger Trigger => TriggerBuilder
+    public override ITrigger Trigger => TriggerBuilder
         .Create()
         .StartNow()
         .WithIdentity(Name, Group)
