@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="Autofac.Extras.Quartz" Version="7.3.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
     <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Quartz" Version="3.3.3" />
   </ItemGroup>
