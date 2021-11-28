@@ -15,16 +15,16 @@
     <repository type="git" url="https://github.com/laget-se/laget.Quartz" branch="master" />
     <dependencies>
       <group targetFramework="netstandard2.1">
-        <dependency id="Autofac.Extensions.DependencyInjection" version="7.1.0" />
-        <dependency id="Autofac.Extras.Quartz" version="7.2.0" />
-        <dependency id="Microsoft.Extensions.Hosting" version="5.0.0" />
+        <dependency id="Autofac.Extensions.DependencyInjection" version="7.2.0" />
+        <dependency id="Autofac.Extras.Quartz" version="7.3.0" />
+        <dependency id="Microsoft.Extensions.Hosting" version="6.0.0" />
         <dependency id="Serilog" version="2.10.0" />
         <dependency id="Quartz" version="3.3.3" />
       </group>
       <group targetFramework="netstandard2.0">
-        <dependency id="Autofac.Extensions.DependencyInjection" version="7.1.0" />
-        <dependency id="Autofac.Extras.Quartz" version="7.2.0" />
-        <dependency id="Microsoft.Extensions.Hosting" version="5.0.0" />
+        <dependency id="Autofac.Extensions.DependencyInjection" version="7.2.0" />
+        <dependency id="Autofac.Extras.Quartz" version="7.3.0" />
+        <dependency id="Microsoft.Extensions.Hosting" version="6.0.0" />
         <dependency id="Serilog" version="2.10.0" />
         <dependency id="Quartz" version="3.3.3" />
       </group>
