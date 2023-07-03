@@ -1,5 +1,5 @@
-﻿using System.Globalization;
-using Quartz;
+﻿using Quartz;
+using System.Globalization;
 
 namespace laget.Quartz.Extensions
 {

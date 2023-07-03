@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Quartz;
+using System;
 using System.Threading.Tasks;
-using Quartz;
 
 namespace laget.Quartz
 {

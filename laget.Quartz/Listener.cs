@@ -1,8 +1,8 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using laget.Quartz.Extensions;
+﻿using laget.Quartz.Extensions;
 using Quartz;
 using Serilog;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace laget.Quartz
 {

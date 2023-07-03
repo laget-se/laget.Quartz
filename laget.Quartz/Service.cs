@@ -1,13 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using laget.Quartz.Attributes;
 using laget.Quartz.Extensions;
 using Microsoft.Extensions.Hosting;
 using Quartz;
 using Quartz.Impl.Matchers;
 using Serilog;
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace laget.Quartz
 {
@@ -38,8 +39,8 @@ namespace laget.Quartz
         private void RegisterJobs()
         {
             var assembly = Assembly.GetEntryAssembly();
-            var jobs = assembly?.DefinedTypes.Where(t => t.BaseType == typeof(Job)).ToList();
-            
+            var jobs = assembly?.DefinedTypes.Where(t => t.BaseType == typeof(Job) && !t.IsDefined(typeof(DisableRegistrationAttribute), false)).ToList();
+
             Log.Information($"Quartz scheduler will register {jobs?.Count ?? 0} jobs");
 
             if (jobs == null) return;
@@ -60,7 +61,7 @@ namespace laget.Quartz
                 .Build();
 
             await _scheduler.ScheduleJob(job, entity.Trigger);
-            
+
             var trigger = await _scheduler.GetTrigger(entity.Trigger.Key);
             Log.Information($"The next occurrence of the '{entity.Group}.{entity.Name}' schedule (Trigger='{entity.Trigger.Key}', At='{trigger.GetNextFireTime()}')");
         }
