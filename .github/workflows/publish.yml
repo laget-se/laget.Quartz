@@ -44,4 +44,4 @@ jobs:
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
         NUSPEC_FILE: laget.Quartz.nuspec
         PROJECT_FILE_PATH: laget.Quartz/laget.Quartz.csproj
-        VERSION_STATIC: "1.2.${{github.run_number}}"
+        VERSION_STATIC: "2.0.${{github.run_number}}"

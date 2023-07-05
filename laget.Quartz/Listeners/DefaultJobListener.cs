@@ -4,11 +4,11 @@ using Serilog;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace laget.Quartz
+namespace laget.Quartz.Listeners
 {
-    public class Listener : IJobListener
+    public class DefaultJobListener : IJobListener
     {
-        public string Name => nameof(Listener);
+        public string Name => nameof(DefaultJobListener);
 
         public Task JobExecutionVetoed(IJobExecutionContext context, CancellationToken cancellationToken = default)
         {

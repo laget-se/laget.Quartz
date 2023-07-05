@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace laget.Quartz
+namespace laget.Quartz.Abstractions
 {
     public abstract class Job : IJob
     {

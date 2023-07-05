@@ -17,7 +17,6 @@ namespace laget.Quartz.Extensions
                 throw new ArgumentNullException(nameof(builder));
             }
 
-
             var config = new NameValueCollection
             {
                 { "quartz.serializer.type", "binary" },
@@ -40,7 +39,6 @@ namespace laget.Quartz.Extensions
             {
                 throw new ArgumentNullException(nameof(config));
             }
-
 
             builder.Register(c => new StdSchedulerFactory(config).GetScheduler().GetAwaiter().GetResult()).As<IScheduler>().SingleInstance();
 
