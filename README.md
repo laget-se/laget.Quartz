@@ -16,7 +16,7 @@ await Host.CreateDefaultBuilder()
     })
     .ConfigureServices((context, services) =>
     {
-        services.AddQuartzService();
+        services.AddQuartz();
     })
     .Build()
     .RunAsync();
@@ -35,7 +35,7 @@ await Host.CreateDefaultBuilder()
     })
     .ConfigureServices((context, services) =>
     {
-        services.AddQuartzService();
+        services.AddQuartz();
     })
     .Build()
     .RunAsync();

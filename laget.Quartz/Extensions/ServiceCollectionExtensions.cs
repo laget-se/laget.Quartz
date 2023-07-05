@@ -4,9 +4,13 @@ using System;
 
 namespace laget.Quartz.Extensions
 {
-    public static class ConfigureExtensions
+    public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddQuartzService(this IServiceCollection services, Action<QuartzHostedServiceOptions> configure = null)
+
+        /// <summary>
+        /// Configures Quartz services to underlying service collection.
+        /// </summary>
+        public static IServiceCollection AddQuartzHostedService(this IServiceCollection services, Action<QuartzHostedServiceOptions> configure = null)
         {
             if (configure != null)
             {
