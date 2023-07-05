@@ -16,6 +16,8 @@ namespace laget.Quartz
 
         public bool RegisterDefaultTriggerListener { get; set; } = false;
 
+        public bool ScanAndRegisterJobs { get; set; } = true;
+
         /// <summary>
         /// <para>
         /// If not <see langword="null" /> the scheduler will start after specified delay.

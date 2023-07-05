@@ -49,7 +49,7 @@ namespace laget.Quartz.Extensions
 
             builder.RegisterModule(new QuartzAutofacJobsModule(Assembly.GetEntryAssembly()));
 
-            builder.RegisterType<Service>().AsSelf().SingleInstance();
+            builder.RegisterType<QuartzHostedService>().AsSelf().SingleInstance();
         }
     }
 }

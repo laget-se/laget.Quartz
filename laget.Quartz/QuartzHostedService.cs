@@ -1,9 +1,11 @@
 ﻿using laget.Quartz.Abstractions;
 using laget.Quartz.Attributes;
 using laget.Quartz.Extensions;
+using laget.Quartz.Listeners;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Quartz;
+using Quartz.Impl.Matchers;
 using Serilog;
 using System;
 using System.Linq;
@@ -110,6 +112,11 @@ namespace laget.Quartz
 
         private async Task ScheduleJob(Job entity)
         {
+            if (_scheduler is null)
+            {
+                throw new InvalidOperationException("The scheduler should have been initialized first.");
+            }
+
             Log.Information($"Quartz scheduler is configuring the scheduler for '{entity.Group}.{entity.Name}'");
 
             var job = JobBuilder
@@ -155,6 +162,14 @@ namespace laget.Quartz
             {
                 return;
             }
+
+            //TODO: Move this?
+            if (_options.Value.RegisterDefaultJobListener)
+                _scheduler.Register(new DefaultJobListener(), new IMatcher<JobKey>[] { GroupMatcher<JobKey>.AnyGroup() });
+            if (_options.Value.RegisterDefaultSchedulerListener)
+                _scheduler.Register(new DefaultSchedulerListener());
+            if (_options.Value.RegisterDefaultTriggerListener)
+                _scheduler.Register(new DefaultTriggerListener(), new IMatcher<TriggerKey>[] { GroupMatcher<TriggerKey>.AnyGroup() });
 
             if (_options.Value.StartDelay.HasValue)
             {
