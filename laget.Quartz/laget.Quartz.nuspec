@@ -20,21 +20,21 @@
         <dependency id="Autofac.Extras.Quartz" version="9.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="7.0.1" />
         <dependency id="Serilog" version="3.0.1" />
-        <dependency id="Quartz" version="3.6.3" />
+        <dependency id="Quartz" version="3.7.0" />
       </group>
       <group targetFramework="netstandard2.1">
         <dependency id="Autofac.Extensions.DependencyInjection" version="8.0.0" />
         <dependency id="Autofac.Extras.Quartz" version="9.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="7.0.1" />
         <dependency id="Serilog" version="3.0.1" />
-        <dependency id="Quartz" version="3.6.3" />
+        <dependency id="Quartz" version="3.7.0" />
       </group>
       <group targetFramework="netstandard2.0">
         <dependency id="Autofac.Extensions.DependencyInjection" version="8.0.0" />
         <dependency id="Autofac.Extras.Quartz" version="9.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="7.0.1" />
         <dependency id="Serilog" version="3.0.1" />
-        <dependency id="Quartz" version="3.6.3" />
+        <dependency id="Quartz" version="3.7.0" />
       </group>
     </dependencies>
   </metadata>
