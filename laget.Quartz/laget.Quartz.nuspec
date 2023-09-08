@@ -4,7 +4,7 @@
     <id>laget.Quartz</id>
     <title>laget.Quartz</title>
     <version>$version$</version>
-    <authors>gonace,laget.se</authors>
+    <authors>laget.se</authors>
     <owners>laget.se</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A generic implementation of Quartz, an open-source job scheduling system for .NET...</description>
