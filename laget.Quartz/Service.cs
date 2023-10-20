@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace laget.Quartz
 {
-    public class Service : IHostedService
+    public class Service : BackgroundService
     {
         private readonly IScheduler _scheduler;
 
@@ -21,19 +21,14 @@ namespace laget.Quartz
             _scheduler = scheduler;
         }
 
-        public Task StartAsync(CancellationToken cancellationToken)
+        protected override async Task ExecuteAsync(CancellationToken cancellationToken)
         {
             Log.Information($"{Assembly.GetEntryAssembly()?.ManifestModule.Name} is now started, to safely close the application press CTRL+C once!");
 
             RegisterJobs();
             _scheduler.ListenerManager.AddJobListener(new Listener(), GroupMatcher<JobKey>.AnyGroup());
 
-            return _scheduler.Start(cancellationToken);
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            return _scheduler.Shutdown(cancellationToken);
+            await _scheduler.Start(cancellationToken);
         }
 
         private void RegisterJobs()

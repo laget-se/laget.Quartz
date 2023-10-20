@@ -10,13 +10,13 @@ namespace laget.Quartz
         public abstract string Name { get; }
         public abstract ITrigger Trigger { get; }
 
-        public abstract Task ExecuteJob(IJobExecutionContext context);
+        protected abstract Task ExecuteAsync(IJobExecutionContext context);
 
         public async Task Execute(IJobExecutionContext context)
         {
             try
             {
-                await ExecuteJob(context);
+                await ExecuteAsync(context);
             }
             catch (Exception ex)
             {
