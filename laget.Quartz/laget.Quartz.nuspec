@@ -15,32 +15,40 @@
     <readme>assets\README.md</readme>
     <repository type="git" url="https://github.com/laget-se/laget.Quartz" branch="master" />
     <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Autofac.Extensions.DependencyInjection" version="8.0.0" />
+        <dependency id="Autofac.Extras.Quartz" version="9.0.0" />
+        <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
+        <dependency id="Serilog" version="3.1.1" />
+        <dependency id="Quartz" version="3.8.0" />
+      </group>
       <group targetFramework="net6.0">
         <dependency id="Autofac.Extensions.DependencyInjection" version="8.0.0" />
         <dependency id="Autofac.Extras.Quartz" version="9.0.0" />
-        <dependency id="Microsoft.Extensions.Hosting" version="7.0.1" />
-        <dependency id="Serilog" version="3.0.1" />
-        <dependency id="Quartz" version="3.7.0" />
+        <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
+        <dependency id="Serilog" version="3.1.1" />
+        <dependency id="Quartz" version="3.8.0" />
       </group>
       <group targetFramework="netstandard2.1">
         <dependency id="Autofac.Extensions.DependencyInjection" version="8.0.0" />
         <dependency id="Autofac.Extras.Quartz" version="9.0.0" />
-        <dependency id="Microsoft.Extensions.Hosting" version="7.0.1" />
-        <dependency id="Serilog" version="3.0.1" />
-        <dependency id="Quartz" version="3.7.0" />
+        <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
+        <dependency id="Serilog" version="3.1.1" />
+        <dependency id="Quartz" version="3.8.0" />
       </group>
       <group targetFramework="netstandard2.0">
         <dependency id="Autofac.Extensions.DependencyInjection" version="8.0.0" />
         <dependency id="Autofac.Extras.Quartz" version="9.0.0" />
-        <dependency id="Microsoft.Extensions.Hosting" version="7.0.1" />
-        <dependency id="Serilog" version="3.0.1" />
-        <dependency id="Quartz" version="3.7.0" />
+        <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
+        <dependency id="Serilog" version="3.1.1" />
+        <dependency id="Quartz" version="3.8.0" />
       </group>
     </dependencies>
   </metadata>
   <files>
     <file src="..\README.md" target="assets\" />
     <file src="..\assets\icon.png" target="assets\" />
+    <file src=".\bin\Release\net8.0\*" target="lib\net8.0\" />
     <file src=".\bin\Release\net6.0\*" target="lib\net6.0\" />
     <file src=".\bin\Release\netstandard2.1\*" target="lib\netstandard2.1\" />
     <file src=".\bin\Release\netstandard2.0\*" target="lib\netstandard2.0\" />
