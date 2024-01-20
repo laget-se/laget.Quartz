@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Autofac.Extras.Quartz;
+using laget.Quartz.Modules;
 using Quartz;
 using Quartz.Impl;
 using System;
