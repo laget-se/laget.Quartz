@@ -1,11 +1,9 @@
-﻿using laget.Quartz.Attributes;
-using laget.Quartz.Extensions;
+﻿using laget.Quartz.Extensions;
 using Microsoft.Extensions.Hosting;
 using Quartz;
 using Quartz.Impl.Matchers;
 using Serilog;
-using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,10 +12,14 @@ namespace laget.Quartz
 {
     public class Service : BackgroundService
     {
+        private readonly IEnumerable<Job> _jobs;
         private readonly IScheduler _scheduler;
 
-        public Service(IScheduler scheduler)
+        public Service(
+            IEnumerable<Job> jobs,
+            IScheduler scheduler)
         {
+            _jobs = jobs;
             _scheduler = scheduler;
         }
 
@@ -25,25 +27,14 @@ namespace laget.Quartz
         {
             Log.Information($"{Assembly.GetEntryAssembly()?.ManifestModule.Name} is now started, to safely close the application press CTRL+C once!");
 
-            RegisterJobs();
+            foreach (var job in _jobs)
+            {
+                Schedule(job);
+            }
+
             _scheduler.ListenerManager.AddJobListener(new Listener(), GroupMatcher<JobKey>.AnyGroup());
 
             await _scheduler.Start(cancellationToken);
-        }
-
-        private void RegisterJobs()
-        {
-            var assembly = Assembly.GetEntryAssembly();
-            var jobs = assembly?.DefinedTypes.Where(t => t.BaseType == typeof(Job) && !t.IsDefined(typeof(DisableRegistrationAttribute), false)).ToList();
-
-            Log.Information($"Quartz scheduler will register {jobs?.Count ?? 0} jobs");
-
-            if (jobs == null) return;
-
-            foreach (var job in jobs)
-            {
-                Schedule(Activator.CreateInstance(job) as Job);
-            }
         }
 
         private async void Schedule(Job entity)

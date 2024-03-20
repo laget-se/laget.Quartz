@@ -8,11 +8,14 @@ A generic implementation of Quartz, an open-source job scheduling system for .NE
 > This implementation requires `Autofac` since this is the Inversion of Control container of our choosing.
 
 ### Usage
+#### Simple
+> This will by default register all jobs from the calling assembly.
 ```c#
 await Host.CreateDefaultBuilder()
     .ConfigureContainer<ContainerBuilder>((context, builder) =>
     {
-        builder.RegisterQuartz();
+        builder.RegisterQuartzJobs();
+        builder.RegisterQuartzService();
     })
     .ConfigureServices((context, services) =>
     {
@@ -21,11 +24,20 @@ await Host.CreateDefaultBuilder()
     .Build()
     .RunAsync();
 ```
+
+### Advanced
 ```c#
 await Host.CreateDefaultBuilder()
     .ConfigureContainer<ContainerBuilder>((context, builder) =>
     {
-        builder.RegisterQuartz(new NameValueCollection
+        builder.RegisterQuartzJobs(_ =>
+        {
+            _.Assembly("name");
+            _.TheCallingAssembly();
+            _.TheEntryAssembly();
+            _.TheExecutingAssembly();
+        });
+        builder.RegisterQuartzService(new NameValueCollection
         {
             { "quartz.serializer.type", "binary" },
             { "quartz.scheduler.instanceName", "ThisIsAnInstance" },
@@ -40,6 +52,14 @@ await Host.CreateDefaultBuilder()
     .Build()
     .RunAsync();
 ```
+
+
+This is the advanced and more customizable way to register your mappers
+
+* `Assembly("name");` will register mapper implementations in the assembly, will load assembly via the name provided using `System.Reflection`, that inherits from `IMapper`.
+* `TheCallingAssembly();` will register mapper implementations from the calling assembly that inherits from `Job (laget.Quartz.Job)`.
+* `TheEntryAssembly();` will register mapper implementations from the entry assembly that inherits from `Job (laget.Quartz.Job)`.
+* `TheExecutingAssembly();` will register mapper implementations from the executing assembly that inherits from `Job (laget.Quartz.Job)`.
 
 > For a full configuration reference, please take a look at [here!](https://www.quartz-scheduler.net/documentation/quartz-3.x/configuration/reference.html#main-configuration)
 
