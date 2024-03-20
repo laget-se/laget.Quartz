@@ -56,10 +56,14 @@ await Host.CreateDefaultBuilder()
 
 This is the advanced and more customizable way to register your mappers
 
-* `Assembly("name");` will register mapper implementations in the assembly, will load assembly via the name provided using `System.Reflection`, that inherits from `IMapper`.
-* `TheCallingAssembly();` will register mapper implementations from the calling assembly that inherits from `Job (laget.Quartz.Job)`.
-* `TheEntryAssembly();` will register mapper implementations from the entry assembly that inherits from `Job (laget.Quartz.Job)`.
-* `TheExecutingAssembly();` will register mapper implementations from the executing assembly that inherits from `Job (laget.Quartz.Job)`.
+* `Assembly("name");`
+  > This will register mapper implementations in the assembly, will load assembly via the name provided using `System.Reflection`, that inherits from `Job (laget.Quartz.Job)`.
+* `TheCallingAssembly();`
+  > This will register mapper implementations from the calling assembly that inherits from `Job (laget.Quartz.Job)`.
+* `TheEntryAssembly();`
+  > This will register mapper implementations from the entry assembly that inherits from `Job (laget.Quartz.Job)`.
+* `TheExecutingAssembly();`
+  > This will register mapper implementations from the executing assembly that inherits from `Job (laget.Quartz.Job)`.
 
 > For a full configuration reference, please take a look at [here!](https://www.quartz-scheduler.net/documentation/quartz-3.x/configuration/reference.html#main-configuration)
 
