@@ -33,7 +33,7 @@ await Host.CreateDefaultBuilder()
         builder.RegisterQuartzJobs(_ =>
         {
             _.Assembly("name");
-            _.Register<Job>();_
+            _.Register<Job>();
             _.TheCallingAssembly();
             _.TheEntryAssembly();
             _.TheExecutingAssembly();
