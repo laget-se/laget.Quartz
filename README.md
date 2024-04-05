@@ -70,6 +70,35 @@ This is the advanced and more customizable way to register your mappers
 
 > For a full configuration reference, please take a look at [here!](https://www.quartz-scheduler.net/documentation/quartz-3.x/configuration/reference.html#main-configuration)
 
+### Modules
+```c#
+await Host.CreateDefaultBuilder()
+    .ConfigureContainer<ContainerBuilder>((context, builder) =>
+    {
+        builder.RegisterQuartzJobs(_ =>
+        {
+            _.RegisterModule<UserModule>();
+        });
+        builder.RegisterQuartzService();
+    })
+    .ConfigureServices((context, services) =>
+    {
+        services.AddQuartzService();
+    })
+    .Build()
+    .RunAsync();
+```
+```c#
+public class OrderModule : Module
+{
+    public override void Configure(IRegistrator registrator)
+    {
+        registrator.AddJob<SomeJob>();
+        registrator.AddJob<AnotherJob>();
+    }
+}
+```
+
 #### Job
 ```c#
 [DisallowConcurrentExecution]

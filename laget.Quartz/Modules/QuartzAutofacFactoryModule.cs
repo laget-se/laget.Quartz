@@ -27,7 +27,7 @@ namespace laget.Quartz.Modules
     /// <summary>
     ///     Registers <see cref="ISchedulerFactory" /> and default <see cref="IScheduler" />.
     /// </summary>
-    public class QuartzAutofacFactoryModule : Module
+    public class QuartzAutofacFactoryModule : Autofac.Module
     {
         /// <summary>
         ///     Default name for nested lifetime scope.

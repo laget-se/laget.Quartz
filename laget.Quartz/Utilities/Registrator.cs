@@ -28,6 +28,12 @@ namespace laget.Quartz.Utilities
         void Register<T>();
 
         /// <summary>
+        /// Register a module with one more job registrations.
+        /// </summary>
+        /// <typeparam name="TModule"></typeparam>
+        void RegisterModule<TModule>() where TModule : Module, new();
+
+        /// <summary>
         /// Add the calling Assembly to the scanning operation
         /// </summary>
         void TheCallingAssembly();
@@ -74,6 +80,12 @@ namespace laget.Quartz.Utilities
             var assembly = type.GetTypeInfo().Assembly;
 
             _bindings.Add(type.GetHashCode(), new TypeReference(assembly, type));
+        }
+
+        public void RegisterModule<TModule>() where TModule : Module, new()
+        {
+            var module = new TModule();
+            module.Configure(this);
         }
 
         public void TheCallingAssembly()
