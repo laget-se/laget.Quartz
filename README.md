@@ -93,8 +93,8 @@ public class OrderModule : Module
 {
     public override void Configure(IRegistrator registrator)
     {
-        registrator.AddJob<SomeJob>();
-        registrator.AddJob<AnotherJob>();
+        registrator.Register<SomeJob>();
+        registrator.Register<AnotherJob>();
     }
 }
 ```
