@@ -51,7 +51,7 @@ namespace laget.Quartz.Utilities
 
     public class Registrator : IRegistrator
     {
-        private readonly Dictionary<int, TypeReference> _bindings = new Dictionary<int, TypeReference>();
+        private readonly Dictionary<string, TypeReference> _bindings = new Dictionary<string, TypeReference>();
         private readonly ContainerBuilder _builder;
 
         public Registrator(ContainerBuilder builder)
@@ -65,7 +65,7 @@ namespace laget.Quartz.Utilities
 
             foreach (var job in jobs)
             {
-                _bindings.Add(job.GetHashCode(), new TypeReference(assembly, job));
+                _bindings.Add(GetFullname(job), new TypeReference(assembly, job));
             }
         }
 
@@ -79,7 +79,7 @@ namespace laget.Quartz.Utilities
             var type = typeof(T);
             var assembly = type.GetTypeInfo().Assembly;
 
-            _bindings.Add(type.GetHashCode(), new TypeReference(assembly, type));
+            _bindings.Add(GetFullname(type), new TypeReference(assembly, type));
         }
 
         public void RegisterModule<TModule>() where TModule : Module, new()
@@ -109,7 +109,7 @@ namespace laget.Quartz.Utilities
 
             foreach (var job in jobs)
             {
-                _bindings.Add(job.GetHashCode(), new TypeReference(assembly, job));
+                _bindings.Add(GetFullname(job), new TypeReference(assembly, job));
             }
         }
 
@@ -135,6 +135,14 @@ namespace laget.Quartz.Utilities
 
             public Assembly Assembly { get; }
             public Type Type { get; }
+        }
+
+        private string GetFullname(Type type)
+        {
+            if (string.IsNullOrWhiteSpace(type.FullName))
+                return type.Name;
+
+            return type.FullName;
         }
     }
 }
