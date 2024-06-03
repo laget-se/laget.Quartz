@@ -18,26 +18,26 @@
       <group targetFramework="net8.0">
         <dependency id="Autofac.Extensions.DependencyInjection" version="9.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
-        <dependency id="Serilog" version="3.1.1" />
-        <dependency id="Quartz" version="3.8.1" />
+        <dependency id="Serilog" version="4.0.0" />
+        <dependency id="Quartz" version="3.9.0" />
       </group>
       <group targetFramework="net6.0">
         <dependency id="Autofac.Extensions.DependencyInjection" version="9.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
-        <dependency id="Serilog" version="3.1.1" />
-        <dependency id="Quartz" version="3.8.1" />
+        <dependency id="Serilog" version="4.0.0" />
+        <dependency id="Quartz" version="3.9.0" />
       </group>
       <group targetFramework="netstandard2.1">
         <dependency id="Autofac.Extensions.DependencyInjection" version="9.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
-        <dependency id="Serilog" version="3.1.1" />
-        <dependency id="Quartz" version="3.8.1" />
+        <dependency id="Serilog" version="4.0.0" />
+        <dependency id="Quartz" version="3.9.0" />
       </group>
       <group targetFramework="netstandard2.0">
         <dependency id="Autofac.Extensions.DependencyInjection" version="9.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
-        <dependency id="Serilog" version="3.1.1" />
-        <dependency id="Quartz" version="3.8.1" />
+        <dependency id="Serilog" version="4.0.0" />
+        <dependency id="Quartz" version="3.9.0" />
       </group>
     </dependencies>
   </metadata>
