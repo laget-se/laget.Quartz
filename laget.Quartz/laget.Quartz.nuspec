@@ -16,28 +16,28 @@
     <repository type="git" url="https://github.com/laget-se/laget.Quartz" branch="master" />
     <dependencies>
       <group targetFramework="net8.0">
-        <dependency id="Autofac.Extensions.DependencyInjection" version="9.0.0" />
+        <dependency id="Autofac.Extensions.DependencyInjection" version="10.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
-        <dependency id="Serilog" version="4.0.0" />
-        <dependency id="Quartz" version="3.9.0" />
+        <dependency id="Serilog" version="4.0.1" />
+        <dependency id="Quartz" version="3.13.0" />
       </group>
       <group targetFramework="net6.0">
-        <dependency id="Autofac.Extensions.DependencyInjection" version="9.0.0" />
+        <dependency id="Autofac.Extensions.DependencyInjection" version="10.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
-        <dependency id="Serilog" version="4.0.0" />
-        <dependency id="Quartz" version="3.9.0" />
+        <dependency id="Serilog" version="4.0.1" />
+        <dependency id="Quartz" version="3.13.0" />
       </group>
       <group targetFramework="netstandard2.1">
-        <dependency id="Autofac.Extensions.DependencyInjection" version="9.0.0" />
+        <dependency id="Autofac.Extensions.DependencyInjection" version="10.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
-        <dependency id="Serilog" version="4.0.0" />
-        <dependency id="Quartz" version="3.9.0" />
+        <dependency id="Serilog" version="4.0.1" />
+        <dependency id="Quartz" version="3.13.0" />
       </group>
       <group targetFramework="netstandard2.0">
-        <dependency id="Autofac.Extensions.DependencyInjection" version="9.0.0" />
+        <dependency id="Autofac.Extensions.DependencyInjection" version="10.0.0" />
         <dependency id="Microsoft.Extensions.Hosting" version="8.0.0" />
-        <dependency id="Serilog" version="4.0.0" />
-        <dependency id="Quartz" version="3.9.0" />
+        <dependency id="Serilog" version="4.0.1" />
+        <dependency id="Quartz" version="3.13.0" />
       </group>
     </dependencies>
   </metadata>
